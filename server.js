@@ -18,5 +18,13 @@ app.get('/api/v1/operations/withdraw', async (req, res) => {
   }
 })
 
+app.get('/my-ip', async (req, res) => {
+  try {
+    const r = await fetch('https://api.ipify.org?format=json')
+    const d = await r.json()
+    res.json(d)
+  } catch(e) { res.json({ error: e.message }) }
+})
+
 app.get('/health', (req, res) => res.json({ ok: true }))
-app.listen(PORT, () => console.log(`Plisio proxy running on port ${PORT}`))
+app.listen(PORT, () => console.log(`Proxy running on port ${PORT}`))

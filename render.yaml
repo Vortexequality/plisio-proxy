@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: plisio-proxy
+    runtime: node
+    buildCommand: npm install
+    startCommand: node server.js
+    envVars:
+      - key: PLISIO_PROXY_SECRET
+        sync: false
+    plan: free
